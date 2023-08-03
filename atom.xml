@@ -1,0 +1,852 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>hg8&#39;s Notes — My notes about infosec world. Pentest/Bug Bounty/CTF Writeups.</title>
+  <icon>https://hg8.sh/icon.png</icon>
+  
+  <link href="https://hg8.sh/atom.xml" rel="self"/>
+  
+  <link href="https://hg8.sh/"/>
+  <updated>2022-11-22T20:48:37.976Z</updated>
+  <id>https://hg8.sh/</id>
+  
+  <author>
+    <name>hg8</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Buffer Overflow: Introduction</title>
+    <link href="https://hg8.sh/posts/binary-exploitation/buffer-overflow-introduction/"/>
+    <id>https://hg8.sh/posts/binary-exploitation/buffer-overflow-introduction/</id>
+    <published>2022-11-21T23:00:00.000Z</published>
+    <updated>2022-11-22T20:48:37.976Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/9076747/203412163-e8f180a6-5d96-4878-944b-8db1db3f0d25.jpg&quot; alt=&quot;buffer overflow</summary>
+        
+      
+    
+    
+    
+    <category term="Binary Exploitation" scheme="https://hg8.sh/categories/Binary-Exploitation/"/>
+    
+    
+    <category term="linux" scheme="https://hg8.sh/tags/linux/"/>
+    
+    <category term="binary exploitation" scheme="https://hg8.sh/tags/binary-exploitation/"/>
+    
+    <category term="buffer overflow" scheme="https://hg8.sh/tags/buffer-overflow/"/>
+    
+    <category term="c" scheme="https://hg8.sh/tags/c/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HackTheBox - Talkative</title>
+    <link href="https://hg8.sh/posts/talkative/"/>
+    <id>https://hg8.sh/posts/talkative/</id>
+    <published>2022-08-26T22:00:00.000Z</published>
+    <updated>2022-09-03T15:15:49.884Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/9076747/164916795-5c33ab53-424b-4846-9bff-7b4c19ca529d.png&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="CTF" scheme="https://hg8.sh/categories/CTF/"/>
+    
+    <category term="HackTheBox" scheme="https://hg8.sh/categories/CTF/HackTheBox/"/>
+    
+    <category term="Hard Box" scheme="https://hg8.sh/categories/CTF/HackTheBox/Hard-Box/"/>
+    
+    
+    <category term="RCE" scheme="https://hg8.sh/tags/RCE/"/>
+    
+    <category term="docker" scheme="https://hg8.sh/tags/docker/"/>
+    
+    <category term="mongodb" scheme="https://hg8.sh/tags/mongodb/"/>
+    
+    <category term="Linux" scheme="https://hg8.sh/tags/Linux/"/>
+    
+    <category term="container" scheme="https://hg8.sh/tags/container/"/>
+    
+    <category term="CVE" scheme="https://hg8.sh/tags/CVE/"/>
+    
+    <category term="recon" scheme="https://hg8.sh/tags/recon/"/>
+    
+    <category term="jamovi" scheme="https://hg8.sh/tags/jamovi/"/>
+    
+    <category term="rocket.chat" scheme="https://hg8.sh/tags/rocket-chat/"/>
+    
+    <category term="pwncat" scheme="https://hg8.sh/tags/pwncat/"/>
+    
+    <category term="bolt" scheme="https://hg8.sh/tags/bolt/"/>
+    
+    <category term="cap-dac-read-search" scheme="https://hg8.sh/tags/cap-dac-read-search/"/>
+    
+    <category term="shocker" scheme="https://hg8.sh/tags/shocker/"/>
+    
+    <category term="webhook" scheme="https://hg8.sh/tags/webhook/"/>
+    
+    <category term="twig" scheme="https://hg8.sh/tags/twig/"/>
+    
+    <category term="ssti" scheme="https://hg8.sh/tags/ssti/"/>
+    
+    <category term="r-lang" scheme="https://hg8.sh/tags/r-lang/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Bug Bounty Story: Escalating SSRF to RCE on AWS</title>
+    <link href="https://hg8.sh/posts/bugbounty/ssrf-to-rce-aws/"/>
+    <id>https://hg8.sh/posts/bugbounty/ssrf-to-rce-aws/</id>
+    <published>2022-07-03T22:00:00.000Z</published>
+    <updated>2022-09-03T15:16:50.163Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;Hey everyone, not a CTF write-up today but my first Bug Bounty Bounty story: SSRF escalation to RCE on AWS.&lt;/p&gt;
+&lt;p&gt;The vulnerability was</summary>
+        
+      
+    
+    
+    
+    <category term="Bug Bounty" scheme="https://hg8.sh/categories/Bug-Bounty/"/>
+    
+    
+    <category term="RCE" scheme="https://hg8.sh/tags/RCE/"/>
+    
+    <category term="SSRF" scheme="https://hg8.sh/tags/SSRF/"/>
+    
+    <category term="bug bounty" scheme="https://hg8.sh/tags/bug-bounty/"/>
+    
+    <category term="AWS" scheme="https://hg8.sh/tags/AWS/"/>
+    
+    <category term="IAM" scheme="https://hg8.sh/tags/IAM/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HackTheBox - AdmirerToo</title>
+    <link href="https://hg8.sh/posts/admirertoo/"/>
+    <id>https://hg8.sh/posts/admirertoo/</id>
+    <published>2022-05-27T22:00:00.000Z</published>
+    <updated>2022-08-04T08:37:52.825Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;img alt=&quot;admiretoo-hackthebox&quot; src=&quot;https://user-images.githubusercontent.com/9076747/166099416-e02b4a36-942c-4177-9532-89b1781b0e85.png&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="CTF" scheme="https://hg8.sh/categories/CTF/"/>
+    
+    <category term="HackTheBox" scheme="https://hg8.sh/categories/CTF/HackTheBox/"/>
+    
+    <category term="Hard Box" scheme="https://hg8.sh/categories/CTF/HackTheBox/Hard-Box/"/>
+    
+    
+    <category term="linux" scheme="https://hg8.sh/tags/linux/"/>
+    
+    <category term="ssrf" scheme="https://hg8.sh/tags/ssrf/"/>
+    
+    <category term="vhost" scheme="https://hg8.sh/tags/vhost/"/>
+    
+    <category term="ffuf" scheme="https://hg8.sh/tags/ffuf/"/>
+    
+    <category term="fail2ban" scheme="https://hg8.sh/tags/fail2ban/"/>
+    
+    <category term="python" scheme="https://hg8.sh/tags/python/"/>
+    
+    <category term="port forwarding" scheme="https://hg8.sh/tags/port-forwarding/"/>
+    
+    <category term="PHP Object Injection" scheme="https://hg8.sh/tags/PHP-Object-Injection/"/>
+    
+    <category term="phpggc" scheme="https://hg8.sh/tags/phpggc/"/>
+    
+    <category term="CVE-2020-35476" scheme="https://hg8.sh/tags/CVE-2020-35476/"/>
+    
+    <category term="CVE-2021-21311" scheme="https://hg8.sh/tags/CVE-2021-21311/"/>
+    
+    <category term="CVE-2021-32749" scheme="https://hg8.sh/tags/CVE-2021-32749/"/>
+    
+    <category term="opencats" scheme="https://hg8.sh/tags/opencats/"/>
+    
+    <category term="opentsdb" scheme="https://hg8.sh/tags/opentsdb/"/>
+    
+    <category term="whois" scheme="https://hg8.sh/tags/whois/"/>
+    
+    <category term="regex" scheme="https://hg8.sh/tags/regex/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HackTheBox - Fingerprint</title>
+    <link href="https://hg8.sh/posts/fingerprint/"/>
+    <id>https://hg8.sh/posts/fingerprint/</id>
+    <published>2022-05-13T22:00:00.000Z</published>
+    <updated>2022-08-04T08:37:52.828Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;img width=&quot;578&quot; alt=&quot;figerprint-hackthebox&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="CTF" scheme="https://hg8.sh/categories/CTF/"/>
+    
+    <category term="HackTheBox" scheme="https://hg8.sh/categories/CTF/HackTheBox/"/>
+    
+    <category term="Insane Box" scheme="https://hg8.sh/categories/CTF/HackTheBox/Insane-Box/"/>
+    
+    
+    <category term="linux" scheme="https://hg8.sh/tags/linux/"/>
+    
+    <category term="LFI" scheme="https://hg8.sh/tags/LFI/"/>
+    
+    <category term="JWT" scheme="https://hg8.sh/tags/JWT/"/>
+    
+    <category term="Cookie Forge" scheme="https://hg8.sh/tags/Cookie-Forge/"/>
+    
+    <category term="Crypto" scheme="https://hg8.sh/tags/Crypto/"/>
+    
+    <category term="ECB" scheme="https://hg8.sh/tags/ECB/"/>
+    
+    <category term="Command Injection" scheme="https://hg8.sh/tags/Command-Injection/"/>
+    
+    <category term="HQL Injection" scheme="https://hg8.sh/tags/HQL-Injection/"/>
+    
+    <category term="Bruteforce" scheme="https://hg8.sh/tags/Bruteforce/"/>
+    
+    <category term="XSS" scheme="https://hg8.sh/tags/XSS/"/>
+    
+    <category term="Reverse Shell" scheme="https://hg8.sh/tags/Reverse-Shell/"/>
+    
+    <category term="Flask" scheme="https://hg8.sh/tags/Flask/"/>
+    
+    <category term="SUID" scheme="https://hg8.sh/tags/SUID/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Misc CTF - Request Smuggling</title>
+    <link href="https://hg8.sh/posts/misc-ctf/request-smuggling/"/>
+    <id>https://hg8.sh/posts/misc-ctf/request-smuggling/</id>
+    <published>2022-01-14T23:00:00.000Z</published>
+    <updated>2022-08-04T08:37:52.830Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;During a CTF I recently came across a very cool challenge on Request Smuggling. I have been wanting to try my theoretical knowledge of</summary>
+        
+      
+    
+    
+    
+    <category term="CTF" scheme="https://hg8.sh/categories/CTF/"/>
+    
+    <category term="Misc" scheme="https://hg8.sh/categories/CTF/Misc/"/>
+    
+    
+    <category term="linux" scheme="https://hg8.sh/tags/linux/"/>
+    
+    <category term="beginner" scheme="https://hg8.sh/tags/beginner/"/>
+    
+    <category term="request smuggling" scheme="https://hg8.sh/tags/request-smuggling/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HackTheBox - Travel</title>
+    <link href="https://hg8.sh/posts/travels/"/>
+    <id>https://hg8.sh/posts/travels/</id>
+    <published>2022-01-01T23:00:00.000Z</published>
+    <updated>2022-08-04T08:37:52.838Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;img width=&quot;580&quot; alt=&quot;travel-hackthebox&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="CTF" scheme="https://hg8.sh/categories/CTF/"/>
+    
+    <category term="HackTheBox" scheme="https://hg8.sh/categories/CTF/HackTheBox/"/>
+    
+    <category term="Hard Box" scheme="https://hg8.sh/categories/CTF/HackTheBox/Hard-Box/"/>
+    
+    
+    <category term="linux" scheme="https://hg8.sh/tags/linux/"/>
+    
+    <category term="git" scheme="https://hg8.sh/tags/git/"/>
+    
+    <category term="memcached" scheme="https://hg8.sh/tags/memcached/"/>
+    
+    <category term="docker" scheme="https://hg8.sh/tags/docker/"/>
+    
+    <category term="SSRF" scheme="https://hg8.sh/tags/SSRF/"/>
+    
+    <category term="ldap" scheme="https://hg8.sh/tags/ldap/"/>
+    
+    <category term="travel" scheme="https://hg8.sh/tags/travel/"/>
+    
+    <category term="phpmemcached" scheme="https://hg8.sh/tags/phpmemcached/"/>
+    
+    <category term="memcached injection" scheme="https://hg8.sh/tags/memcached-injection/"/>
+    
+    <category term="Gopher" scheme="https://hg8.sh/tags/Gopher/"/>
+    
+    <category term="deserialization" scheme="https://hg8.sh/tags/deserialization/"/>
+    
+    <category term="simplePie" scheme="https://hg8.sh/tags/simplePie/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Misc CTF - GraphQL Injection</title>
+    <link href="https://hg8.sh/posts/misc-ctf/graphql-injection/"/>
+    <id>https://hg8.sh/posts/misc-ctf/graphql-injection/</id>
+    <published>2021-11-25T23:00:00.000Z</published>
+    <updated>2022-08-04T08:37:52.829Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;GraphQL is becoming more and more common nowadays and this challenge was the perfect way to digg into the subject and understand the</summary>
+        
+      
+    
+    
+    
+    <category term="CTF" scheme="https://hg8.sh/categories/CTF/"/>
+    
+    <category term="Misc" scheme="https://hg8.sh/categories/CTF/Misc/"/>
+    
+    
+    <category term="linux" scheme="https://hg8.sh/tags/linux/"/>
+    
+    <category term="beginner" scheme="https://hg8.sh/tags/beginner/"/>
+    
+    <category term="GraphQL Injection" scheme="https://hg8.sh/tags/GraphQL-Injection/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Misc CTF - XXE to SSRF</title>
+    <link href="https://hg8.sh/posts/misc-ctf/xxe-to-ssrf/"/>
+    <id>https://hg8.sh/posts/misc-ctf/xxe-to-ssrf/</id>
+    <published>2021-10-28T22:00:00.000Z</published>
+    <updated>2022-08-04T08:37:52.832Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;This fun little challenge highlight two issue at once: XML External Entity (XXE) and Server-side request forgery (SSRF) and show how</summary>
+        
+      
+    
+    
+    
+    <category term="CTF" scheme="https://hg8.sh/categories/CTF/"/>
+    
+    <category term="Misc" scheme="https://hg8.sh/categories/CTF/Misc/"/>
+    
+    
+    <category term="linux" scheme="https://hg8.sh/tags/linux/"/>
+    
+    <category term="ssrf" scheme="https://hg8.sh/tags/ssrf/"/>
+    
+    <category term="beginner" scheme="https://hg8.sh/tags/beginner/"/>
+    
+    <category term="xxe" scheme="https://hg8.sh/tags/xxe/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Misc CTF - PRNG Weakness</title>
+    <link href="https://hg8.sh/posts/misc-ctf/PRNG%20Weakness/"/>
+    <id>https://hg8.sh/posts/misc-ctf/PRNG%20Weakness/</id>
+    <published>2021-09-15T22:00:00.000Z</published>
+    <updated>2022-08-04T08:37:52.829Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;This challenge aims to highlight the weaknesses of PRNG (Pseudorandom Number Generator) algorithms.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Tl;Dr:&lt;/strong&gt; The</summary>
+        
+      
+    
+    
+    
+    <category term="CTF" scheme="https://hg8.sh/categories/CTF/"/>
+    
+    <category term="Misc" scheme="https://hg8.sh/categories/CTF/Misc/"/>
+    
+    
+    <category term="linux" scheme="https://hg8.sh/tags/linux/"/>
+    
+    <category term="prng" scheme="https://hg8.sh/tags/prng/"/>
+    
+    <category term="beginner" scheme="https://hg8.sh/tags/beginner/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Misc CTF - XSS to CSRF</title>
+    <link href="https://hg8.sh/posts/misc-ctf/xss-to-csrf/"/>
+    <id>https://hg8.sh/posts/misc-ctf/xss-to-csrf/</id>
+    <published>2021-07-31T22:00:00.000Z</published>
+    <updated>2022-08-04T08:37:52.831Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;This challenge highlight two issue at once: the very common Cross Site Scripting (XSS), Cross-site request forgery (CSRF) and how both</summary>
+        
+      
+    
+    
+    
+    <category term="CTF" scheme="https://hg8.sh/categories/CTF/"/>
+    
+    <category term="Misc" scheme="https://hg8.sh/categories/CTF/Misc/"/>
+    
+    
+    <category term="linux" scheme="https://hg8.sh/tags/linux/"/>
+    
+    <category term="beginner" scheme="https://hg8.sh/tags/beginner/"/>
+    
+    <category term="xss" scheme="https://hg8.sh/tags/xss/"/>
+    
+    <category term="csrf" scheme="https://hg8.sh/tags/csrf/"/>
+    
+    <category term="web socket" scheme="https://hg8.sh/tags/web-socket/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Misc CTF - Insecure Deserialization</title>
+    <link href="https://hg8.sh/posts/misc-ctf/insecure-deserialization/"/>
+    <id>https://hg8.sh/posts/misc-ctf/insecure-deserialization/</id>
+    <published>2021-04-30T22:00:00.000Z</published>
+    <updated>2022-08-04T08:37:52.830Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;This challenge highlight an important and too common vulnerability: Insecure Deserialization.&lt;/p&gt;
+&lt;p&gt;Let’s solve this challenge to</summary>
+        
+      
+    
+    
+    
+    <category term="CTF" scheme="https://hg8.sh/categories/CTF/"/>
+    
+    <category term="Misc" scheme="https://hg8.sh/categories/CTF/Misc/"/>
+    
+    
+    <category term="linux" scheme="https://hg8.sh/tags/linux/"/>
+    
+    <category term="beginner" scheme="https://hg8.sh/tags/beginner/"/>
+    
+    <category term="insecure deserialization" scheme="https://hg8.sh/tags/insecure-deserialization/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Misc CTF - Upload Restrictions Bypass</title>
+    <link href="https://hg8.sh/posts/misc-ctf/upload-restriction-bypass/"/>
+    <id>https://hg8.sh/posts/misc-ctf/upload-restriction-bypass/</id>
+    <published>2021-04-26T22:00:00.000Z</published>
+    <updated>2022-08-04T08:37:52.831Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;This challenge highlight the potential risks of bad upload handling and how it can lead to remote code execution on server. In this</summary>
+        
+      
+    
+    
+    
+    <category term="CTF" scheme="https://hg8.sh/categories/CTF/"/>
+    
+    <category term="Misc" scheme="https://hg8.sh/categories/CTF/Misc/"/>
+    
+    
+    <category term="linux" scheme="https://hg8.sh/tags/linux/"/>
+    
+    <category term="beginner" scheme="https://hg8.sh/tags/beginner/"/>
+    
+    <category term="upload bypass" scheme="https://hg8.sh/tags/upload-bypass/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Misc CTF - GraphQL Injection</title>
+    <link href="https://hg8.sh/posts/misc-ctf/sql-injection/"/>
+    <id>https://hg8.sh/posts/misc-ctf/sql-injection/</id>
+    <published>2021-03-11T23:00:00.000Z</published>
+    <updated>2022-08-04T08:37:52.830Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;This seventh challenge aims to demonstrate a more than 20 years old bug: the infamous SQL injection. A perfect challenge for</summary>
+        
+      
+    
+    
+    
+    <category term="CTF" scheme="https://hg8.sh/categories/CTF/"/>
+    
+    <category term="Misc" scheme="https://hg8.sh/categories/CTF/Misc/"/>
+    
+    
+    <category term="linux" scheme="https://hg8.sh/tags/linux/"/>
+    
+    <category term="beginner" scheme="https://hg8.sh/tags/beginner/"/>
+    
+    <category term="SQL Injection" scheme="https://hg8.sh/tags/SQL-Injection/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HackTheBox - SneakyMailer</title>
+    <link href="https://hg8.sh/posts/sneakymailer/"/>
+    <id>https://hg8.sh/posts/sneakymailer/</id>
+    <published>2020-11-27T23:00:00.000Z</published>
+    <updated>2022-08-04T08:37:52.837Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;img width=&quot;576&quot; alt=&quot;SneakyMailer HackTheBox&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="CTF" scheme="https://hg8.sh/categories/CTF/"/>
+    
+    <category term="HackTheBox" scheme="https://hg8.sh/categories/CTF/HackTheBox/"/>
+    
+    <category term="Medium Box" scheme="https://hg8.sh/categories/CTF/HackTheBox/Medium-Box/"/>
+    
+    
+    <category term="linux" scheme="https://hg8.sh/tags/linux/"/>
+    
+    <category term="ftp" scheme="https://hg8.sh/tags/ftp/"/>
+    
+    <category term="gtfobins" scheme="https://hg8.sh/tags/gtfobins/"/>
+    
+    <category term="sneakymailer" scheme="https://hg8.sh/tags/sneakymailer/"/>
+    
+    <category term="smtp" scheme="https://hg8.sh/tags/smtp/"/>
+    
+    <category term="fishing" scheme="https://hg8.sh/tags/fishing/"/>
+    
+    <category term="imap" scheme="https://hg8.sh/tags/imap/"/>
+    
+    <category term="swaks" scheme="https://hg8.sh/tags/swaks/"/>
+    
+    <category term="php reverse shell" scheme="https://hg8.sh/tags/php-reverse-shell/"/>
+    
+    <category term="pypi" scheme="https://hg8.sh/tags/pypi/"/>
+    
+    <category term="pypiserver" scheme="https://hg8.sh/tags/pypiserver/"/>
+    
+    <category term="htpasswd" scheme="https://hg8.sh/tags/htpasswd/"/>
+    
+    <category term="setuptools" scheme="https://hg8.sh/tags/setuptools/"/>
+    
+    <category term="pip" scheme="https://hg8.sh/tags/pip/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HackTheBox - Tabby</title>
+    <link href="https://hg8.sh/posts/tabby/"/>
+    <id>https://hg8.sh/posts/tabby/</id>
+    <published>2020-11-06T23:00:00.000Z</published>
+    <updated>2022-08-04T08:37:52.837Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;img width=&quot;578&quot; alt=&quot;tabby hackthebox&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="CTF" scheme="https://hg8.sh/categories/CTF/"/>
+    
+    <category term="HackTheBox" scheme="https://hg8.sh/categories/CTF/HackTheBox/"/>
+    
+    <category term="Easy Box" scheme="https://hg8.sh/categories/CTF/HackTheBox/Easy-Box/"/>
+    
+    
+    <category term="linux" scheme="https://hg8.sh/tags/linux/"/>
+    
+    <category term="LFI" scheme="https://hg8.sh/tags/LFI/"/>
+    
+    <category term="john" scheme="https://hg8.sh/tags/john/"/>
+    
+    <category term="tabby" scheme="https://hg8.sh/tags/tabby/"/>
+    
+    <category term="tomcat" scheme="https://hg8.sh/tags/tomcat/"/>
+    
+    <category term="war" scheme="https://hg8.sh/tags/war/"/>
+    
+    <category term="zip" scheme="https://hg8.sh/tags/zip/"/>
+    
+    <category term="lxc" scheme="https://hg8.sh/tags/lxc/"/>
+    
+    <category term="lxd" scheme="https://hg8.sh/tags/lxd/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HackTheBox - Blunder</title>
+    <link href="https://hg8.sh/posts/blunder/"/>
+    <id>https://hg8.sh/posts/blunder/</id>
+    <published>2020-10-16T22:00:00.000Z</published>
+    <updated>2022-08-04T08:37:52.826Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;img width=&quot;581&quot; alt=&quot;blunder hackthebox&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="CTF" scheme="https://hg8.sh/categories/CTF/"/>
+    
+    <category term="HackTheBox" scheme="https://hg8.sh/categories/CTF/HackTheBox/"/>
+    
+    <category term="Easy Box" scheme="https://hg8.sh/categories/CTF/HackTheBox/Easy-Box/"/>
+    
+    
+    <category term="linux" scheme="https://hg8.sh/tags/linux/"/>
+    
+    <category term="Blunder" scheme="https://hg8.sh/tags/Blunder/"/>
+    
+    <category term="bludit cms" scheme="https://hg8.sh/tags/bludit-cms/"/>
+    
+    <category term="CVE-2019-17240" scheme="https://hg8.sh/tags/CVE-2019-17240/"/>
+    
+    <category term="cewl" scheme="https://hg8.sh/tags/cewl/"/>
+    
+    <category term="upload restriction bypass" scheme="https://hg8.sh/tags/upload-restriction-bypass/"/>
+    
+    <category term="htaccess" scheme="https://hg8.sh/tags/htaccess/"/>
+    
+    <category term="CVE-2019-16113" scheme="https://hg8.sh/tags/CVE-2019-16113/"/>
+    
+    <category term="SHA1" scheme="https://hg8.sh/tags/SHA1/"/>
+    
+    <category term="sudo" scheme="https://hg8.sh/tags/sudo/"/>
+    
+    <category term="CVE-2019-14287" scheme="https://hg8.sh/tags/CVE-2019-14287/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HackTheBox - Cache</title>
+    <link href="https://hg8.sh/posts/cache/"/>
+    <id>https://hg8.sh/posts/cache/</id>
+    <published>2020-10-09T22:00:00.000Z</published>
+    <updated>2022-08-04T08:37:52.827Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;img width=&quot;578&quot; alt=&quot;cache-hackthebox&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="CTF" scheme="https://hg8.sh/categories/CTF/"/>
+    
+    <category term="HackTheBox" scheme="https://hg8.sh/categories/CTF/HackTheBox/"/>
+    
+    <category term="Medium Box" scheme="https://hg8.sh/categories/CTF/HackTheBox/Medium-Box/"/>
+    
+    
+    <category term="linux" scheme="https://hg8.sh/tags/linux/"/>
+    
+    <category term="cache" scheme="https://hg8.sh/tags/cache/"/>
+    
+    <category term="openerm" scheme="https://hg8.sh/tags/openerm/"/>
+    
+    <category term="sqli" scheme="https://hg8.sh/tags/sqli/"/>
+    
+    <category term="John" scheme="https://hg8.sh/tags/John/"/>
+    
+    <category term="bcrypt" scheme="https://hg8.sh/tags/bcrypt/"/>
+    
+    <category term="RCE" scheme="https://hg8.sh/tags/RCE/"/>
+    
+    <category term="memcached" scheme="https://hg8.sh/tags/memcached/"/>
+    
+    <category term="docker" scheme="https://hg8.sh/tags/docker/"/>
+    
+    <category term="CVE-2019-5736" scheme="https://hg8.sh/tags/CVE-2019-5736/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HackTheBox - Admirer</title>
+    <link href="https://hg8.sh/posts/admirer/"/>
+    <id>https://hg8.sh/posts/admirer/</id>
+    <published>2020-09-25T22:00:00.000Z</published>
+    <updated>2022-08-04T08:37:52.825Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;img width=&quot;584&quot; alt=&quot;admirer-hackthebox&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="CTF" scheme="https://hg8.sh/categories/CTF/"/>
+    
+    <category term="HackTheBox" scheme="https://hg8.sh/categories/CTF/HackTheBox/"/>
+    
+    <category term="Easy Box" scheme="https://hg8.sh/categories/CTF/HackTheBox/Easy-Box/"/>
+    
+    
+    <category term="linux" scheme="https://hg8.sh/tags/linux/"/>
+    
+    <category term="admirer" scheme="https://hg8.sh/tags/admirer/"/>
+    
+    <category term="enumeration" scheme="https://hg8.sh/tags/enumeration/"/>
+    
+    <category term="adminer" scheme="https://hg8.sh/tags/adminer/"/>
+    
+    <category term="mysql local file read" scheme="https://hg8.sh/tags/mysql-local-file-read/"/>
+    
+    <category term="ftp" scheme="https://hg8.sh/tags/ftp/"/>
+    
+    <category term="python library overwrite" scheme="https://hg8.sh/tags/python-library-overwrite/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HackTheBox - Travel</title>
+    <link href="https://hg8.sh/posts/travel/"/>
+    <id>https://hg8.sh/posts/travel/</id>
+    <published>2020-09-11T22:00:00.000Z</published>
+    <updated>2022-08-04T08:37:52.838Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;img width=&quot;580&quot; alt=&quot;travel-hackthebox&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="CTF" scheme="https://hg8.sh/categories/CTF/"/>
+    
+    <category term="HackTheBox" scheme="https://hg8.sh/categories/CTF/HackTheBox/"/>
+    
+    <category term="Hard Box" scheme="https://hg8.sh/categories/CTF/HackTheBox/Hard-Box/"/>
+    
+    
+    <category term="linux" scheme="https://hg8.sh/tags/linux/"/>
+    
+    <category term="git" scheme="https://hg8.sh/tags/git/"/>
+    
+    <category term="memcached" scheme="https://hg8.sh/tags/memcached/"/>
+    
+    <category term="docker" scheme="https://hg8.sh/tags/docker/"/>
+    
+    <category term="SSRF" scheme="https://hg8.sh/tags/SSRF/"/>
+    
+    <category term="ldap" scheme="https://hg8.sh/tags/ldap/"/>
+    
+    <category term="travel" scheme="https://hg8.sh/tags/travel/"/>
+    
+    <category term="phpmemcached" scheme="https://hg8.sh/tags/phpmemcached/"/>
+    
+    <category term="memcached injection" scheme="https://hg8.sh/tags/memcached-injection/"/>
+    
+    <category term="Gopher" scheme="https://hg8.sh/tags/Gopher/"/>
+    
+    <category term="deserialization" scheme="https://hg8.sh/tags/deserialization/"/>
+    
+    <category term="simplePie" scheme="https://hg8.sh/tags/simplePie/"/>
+    
+  </entry>
+  
+</feed>

